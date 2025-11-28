@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AfriPro Streaming</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="logo">
+      <!-- ✅ LOGO PATH: make sure this file exists -->
+      <img src="images/afripro-logo.png" alt="AfriPro Logo">
+      <h1>AfriPro</h1>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search for a movie...">
+      <button>Search</button>
+    </div>
+
+    <div class="auth-links">
+      <a href="login.html">Login</a> | 
+      <a href="signup.html">Sign Up</a>
+    </div>
+  </header>
+
+  <!-- ================= CAROUSEL ================= -->
+  <section class="carousel">
+    <div class="carousel-slide active">
+      <img src="images/banner1.jpg" alt="Featured Movie 1">
+    </div>
+    <div class="carousel-slide">
+      <img src="images/banner2.jpg" alt="Featured Movie 2">
+    </div>
+    <div class="carousel-slide">
+      <img src="images/banner3.jpg" alt="Featured Movie 3">
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main>
+
+    <!-- ===== TRENDING ===== -->
+    <h2 class="section-title">Trending Now</h2>
+    <div class="scroll-row">
+      <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+
+      <div class="card-row">
+        <div class="movie-card"><div class="poster"></div><h3>Movie 1</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Movie 2</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Movie 3</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Movie 4</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Movie 5</h3><a href="#" class="watch-btn">Watch Now</a></div>
+      </div>
+
+      <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+    </div>
+
+    <!-- ===== COMEDY ===== -->
+    <h2 class="section-title">Comedy</h2>
+    <div class="scroll-row">
+      <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+
+      <div class="card-row">
+        <div class="movie-card"><div class="poster"></div><h3>Comedy 1</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Comedy 2</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Comedy 3</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Comedy 4</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Comedy 5</h3><a href="#" class="watch-btn">Watch Now</a></div>
+      </div>
+
+      <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+    </div>
+
+    <!-- ===== ACTION ===== -->
+    <h2 class="section-title">Action</h2>
+    <div class="scroll-row">
+      <button class="scroll-btn left" onclick="scrollRow(this)">&#10094;</button>
+
+      <div class="card-row">
+        <div class="movie-card"><div class="poster"></div><h3>Action 1</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Action 2</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Action 3</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Action 4</h3><a href="#" class="watch-btn">Watch Now</a></div>
+        <div class="movie-card"><div class="poster"></div><h3>Action 5</h3><a href="#" class="watch-btn">Watch Now</a></div>
+      </div>
+
+      <button class="scroll-btn right" onclick="scrollRow(this)">&#10095;</button>
+    </div>
+
+  </main>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // ✅ CAROUSEL AUTO SLIDE (FIXED)
+    let slides = document.querySelectorAll('.carousel-slide');
+    let current = 0;
+
+    function nextSlide() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+
+    if (slides.length > 0) {
+      setInterval(nextSlide, 3000);
+    }
+
+    // ✅ HORIZONTAL SCROLL (FIXED & SAFE)
+    function scrollRow(button) {
+      const row = button.parentElement.querySelector('.card-row');
+      if (!row) return;
+
+      const scrollAmount = 300;
+
+      if (button.classList.contains('left')) {
+        row.scrollTo({
+          left: row.scrollLeft - scrollAmount,
+          behavior: 'smooth'
+        });
+      } else {
+        row.scrollTo({
+          left: row.scrollLeft + scrollAmount,
+          behavior: 'smooth'
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AfriPro Sign Up & Subscription</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      background-color: black;
+      font-family: Arial, sans-serif;
+    }
+
+    .sub-container {
+      max-width: 400px;
+      margin: 60px auto;
+      background-color: #111;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .sub-container h2 {
+      color: #f7931e;
+      margin-bottom: 20px;
+    }
+
+    .plan {
+      background-color: #222;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 10px 0;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .plan:hover {
+      border: 2px solid #f7931e;
+    }
+
+    .plan h3 {
+      color: #d4145a;
+      margin: 5px 0;
+    }
+
+    .sub-container input, 
+    .sub-container select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .pay-btn {
+      width: 100%;
+      background-color: #f7931e;
+      border: none;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .pay-btn:hover {
+      background-color: #d4145a;
+      color: white;
+    }
+
+    .success-message {
+      color: lightgreen;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sub-container">
+    <h2>Create Account & Subscribe</h2>
+
+    <!-- USER DETAILS -->
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="tel" placeholder="Phone Number" required>
+
+    <!-- SUBSCRIPTION PLAN -->
+    <h3 style="color:#f7931e; margin-top:20px;">Choose Plan</h3>
+
+    <div class="plan">Basic – UGX 10,000 / month</div>
+    <div class="plan">Premium – UGX 20,000 / month</div>
+
+    <!-- PAYMENT METHOD -->
+    <select required>
+      <option value="">Choose Payment Method</option>
+      <option>Mobile Money</option>
+      <option>Visa Card</option>
+    </select>
+
+    <!-- SUBMIT -->
+    <button class="pay-btn" onclick="showSuccess()">Subscribe Now</button>
+
+    <p class="success-message" id="successMsg">
+      ✅ Subscription Successful! Welcome to AfriPro.
+    </p>
+  </div>
+
+  <script>
+    function showSuccess() {
+      document.getElementById("successMsg").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
